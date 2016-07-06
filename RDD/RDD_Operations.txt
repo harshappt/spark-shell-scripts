@@ -1,0 +1,4 @@
+var peopleRDD = sc.textFile("us-500.csv")
+var mappedPeopleRDD = peopleRDD.map(_.split(",")).map(r=>(r(6),1))
+var countsByStateRDD = mappedPeopleRDD.reduceByKey(_+_)
+countsByStateRDD.sortBy(t=>t._2,false,2).collect.foreach(println)
