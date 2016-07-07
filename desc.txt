@@ -1,0 +1,35 @@
+RDD - Resilient Distributed Datasets. Imutable and fault tolerant
+
+A Dataset is a strongly-typed, immutable collection of objects that are mapped to a relational schema.  
+
+At the core of the Dataset API is a new concept called an encoder, which is responsible for converting between JVM objects and tabular representation. 
+The tabular representation is stored using Spark’s internal Tungsten binary format, allowing for operations on serialized data and improved memory utilization.
+
+
+
+DataFrame, a collection of distributed data organized into named columns called DataFrame
+
+
+DataFrame = DataSet[Row]
+
+
+Topics To Cover
+Big Data History
+Spark
+Spark Components
+Spark Execution architecture
+
+Spark Driver
+SparkContext
+Spark UI
+
+
+
+RDD
+Transformations
+Actions
+Lazy evaluation
+Caching
+
+
+Data Frames/Data Sets
