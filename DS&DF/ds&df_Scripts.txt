@@ -1,0 +1,11 @@
+var input = spark.read.format("csv").option("header","true").csv("C:/Users/hrputhal/Desktop/us-500/us-500.csv")
+case class Person(firstName:String,lastName:String,companyName:String,address:String,city:String,county:String,state:String,zip:Integer)
+import org.apache.spark.sql.types._
+var inputWithIntegerZip = input.withColumn("zip",input("zip").cast(IntegerType))
+peopleDS.createOrReplaceTempView("people")
+var countsWithSql = sql("select state,zip,count(*) from people group by state,zip")
+countsWithSql.collect.foreach(println)
+var countsWithDSL = peopleDS.groupBy("state","zip").count()
+countsWithDSL.sort("state").show
+
+
